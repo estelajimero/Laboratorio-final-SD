@@ -1,0 +1,142 @@
+<div class="form-wrapper">
+    <h2 class="title-form">Insertar / Actualizar usuario</h2>
+    <form class="form" #formulario="ngForm" (ngSubmit)="registroUsuario(formulario)">
+        <mat-form-field class="example-form-field">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" 
+              id="name-input"
+              #name="ngModel"
+              [(ngModel)]="usuario.nombre" 
+              [ngClass]="{'is-valid': !name.valid, 'is-invalid': name.invalid}"
+              placeholder="Nombre"
+              title="Introduzca un nombre con al menos 3 caracteres"
+              pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$"
+              name="name" 
+              minlength="3" required>
+            <div class="invalid-feedback" *ngIf="name.invalid && (name.dirty || name.touched)">
+              <div *ngIf="name.errors.minlength">Introduzca un nombre con 3 caracteres mínimo</div>
+              <div *ngIf="name.errors.required">Por favor, rellene este campo</div>
+              <div *ngIf="name.errors.pattern">Nombre incorrecto</div>
+            </div>
+          </mat-form-field>
+          <mat-form-field class="example-form-field">
+            <mat-label>Apellidos</mat-label>
+            <input matInput type="text"
+              id="surname-input" 
+              #surname="ngModel"
+              [(ngModel)]="usuario.apellidos" 
+              [ngClass]="{'is-valid': !surname.valid, 'is-invalid': surname.invalid}"
+              placeholder="Apellidos" 
+              title="Introduzca un apellido con al menos 3 caracteres"
+              pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$"
+              name="surname"
+              minlength="3" required>
+            <div class="invalid-feedback" *ngIf="surname.invalid && (surname.dirty || surname.touched)">
+              <div *ngIf="surname.errors.minlength">Introduzca un apellido con 3 caracteres mínimo</div>
+              <div *ngIf="surname.errors.required">Por favor, rellene este campo</div>
+              <div *ngIf="surname.errors.pattern">Apellidos incorrectos</div>	
+            </div>
+          </mat-form-field>
+          <mat-form-field class="example-form-field">
+            <mat-label>Edad</mat-label>
+            <input matInput type="text"
+              id="age-input" 
+              #age="ngModel"
+              name="age-input"
+              minlength="1" maxlength="3"
+              title="Introduzca solamente números del 0 al 125"
+              [(ngModel)]="usuario.edad"
+              [ngClass]="{'is-valid': !age.valid, 'is-invalid': age.invalid}" 
+              placeholder="Edad"
+              pattern="\b([0-9]|[1-9][0-9]|1[01][0-9]|12[0-5])\b"
+              required>
+            <div class="invalid-feedback" *ngIf="age.invalid && (age.dirty || age.touched)">
+              <div *ngIf="age.errors.required">Por favor, rellene este campo</div>
+              <div *ngIf="age.errors.pattern">Introduzca solamente números del 0 al 125</div>
+            </div>
+          </mat-form-field>
+          <mat-form-field class="example-form-field">
+            <mat-label>DNI</mat-label>
+            <input matInput type="text" 
+              id="dni-input"
+              #dni="ngModel" 
+              [(ngModel)]="usuario.dni" 
+              [ngClass]="{'is-valid': !dni.valid, 'is-invalid': dni.invalid}"
+              placeholder="DNI"
+              title="Introduzca una combinación de 8 números y una letra"
+              pattern="^[0-9]{8,8}[A-Za-z]$"
+              name="dni"
+              minlength="9" maxlength="9" required>
+            <div class="invalid-feedback"  *ngIf="dni.invalid && (dni.dirty || dni.touched)">
+              <div *ngIf="dni.errors.minlength">Introduzca un DNI con 9 caracteres</div>
+              <div *ngIf="dni.errors.required">Por favor, rellene este campo</div>
+              <div *ngIf="dni.errors.pattern">Introduzca 9 caracteres numéricos y una letra</div>	
+            </div>
+          </mat-form-field>        
+        <div class="form-bottom">
+            <label class="label" for="date">Fecha de nacimiento</label>
+            <input class="input" id="birthday-input" #birthday="ngModel"
+              type="date" 
+              [(ngModel)]="usuario.cumpleanos" 
+              [ngClass]="{'is-valid': !birthday.valid, 'is-invalid': birthday.invalid}"
+              placeholder="Cumpleaños" 
+              name="birthday"
+              required min="1896-01-01" max="2021-05-31">
+            <div class="invalid-feedback"  *ngIf="birthday.invalid && (birthday.dirty || birthday.touched)">
+              <div *ngIf="birthday.errors.minlength">Introduzca una edad entre 0 y 125 años</div>
+              <div *ngIf="birthday.errors.required">Por favor, rellene este campo</div>
+            </div>
+            <mat-form-field class="example-form-field">
+                <mat-label>Color Favorito</mat-label>
+                <input matInput type="text"
+                  id="color-input" 
+                  #color="ngModel" 
+                  [(ngModel)]="usuario.colorFavorito" 
+                  [ngClass]="{'is-valid': !color.valid, 'is-invalid': color.invalid}"
+                  placeholder="Color Favorito"
+                  title="Introduzca un color con mínimo 3 caracteres"
+                  pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$"
+                  name="color"
+                  minlength="3"
+                  required>
+                <div class="invalid-feedback" *ngIf="color.invalid && (color.dirty || color.touched)">
+                  <div *ngIf="color.errors.required">Por favor, rellene este campo</div>
+                </div>
+              </mat-form-field>
+        </div>
+            
+        <label>Seleccione su género:</label>
+        <select name="gender" id="gender-input" class="gender.input"
+        #sex="ngModel" [(ngModel)]="usuario.sexo"
+        required [ngClass]="{'is-valid': !sex.valid, 'is-invalid': sex.invalid}">
+          <option value="Hombre">Hombre</option>
+          <option value="Mujer">Mujer</option>
+          <option value="No binario">No binario</option>
+          <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+          <div class="invalid-feedback"  *ngIf="sex.invalid && (sex.dirty || sex.touched)">
+            <div *ngIf="sex.errors.required">Por favor, rellene este campo</div>
+          </div>
+        </select>
+        <button mat-flat-button class="submit" type="submit" [disabled]="!formulario.valid">
+          Registrar
+        </button>
+    </form>
+</div>
+<div class="form-wrapper">
+    <h2 class="title-form">Lista Usuarios</h2>
+    <ul class="lista">
+        <li class="item-li" *ngFor="let cadaUsuario of listaUsuarios; let i = index">
+            <h3 class="title-list">{{cadaUsuario.nombre}} {{cadaUsuario.apellidos}}</h3>
+            <p class="p-list">Edad: {{cadaUsuario.edad}}</p>
+            <p class="p-list">DNI: {{cadaUsuario.dni}}</p>
+            <p class="p-list">Cumpleaños: {{cadaUsuario.cumpleanos | date: 'dd/MM/yyyy'}}</p>
+            <p class="p-list">Color favorito: {{cadaUsuario.colorFavorito}}</p>
+            <p class="p-list">Género: {{cadaUsuario.sexo}}</p>
+            <p hidden id="userid">Id: {{cadaUsuario._id}}</p>
+
+            <button mat-flat-button class="update-button" (click)="actualizarUsuario(i)">Actualizar</button>
+            <button mat-flat-button class="erase-button" (click)="borrarUsuario(i)">Borrar</button>
+        </li>
+    </ul>
+</div>
+
