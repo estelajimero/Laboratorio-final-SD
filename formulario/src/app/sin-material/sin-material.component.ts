@@ -94,6 +94,7 @@ export class SinMaterialComponent implements OnInit {
 
   actualizarUsuario(posicionActualizar : number) : void {
     this.usuario = this.listaUsuarios[posicionActualizar];
+    this.usuario.cumpleanos = new Date(this.usuario.cumpleanos);
     this.accion = 'actualizar';
     this.posicion = posicionActualizar;
   }
