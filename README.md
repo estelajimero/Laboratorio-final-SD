@@ -14,3 +14,5 @@ A la hora de crear o editar una persona, será necesario realizar las siguientes
 - Sexo: cadena de texto comprendida en la siguiente lista: Hombre, Mujer, Otro, No especificado.
 
 El funcionamiento del API se puede comprobar con la aplicación Postman, al igual que se describió en la nota técnica.
+
+Tecnologías y lenguajes usados: JS, TypeScript, CSS, HTML, Angular, MongoDB, Express, Node
